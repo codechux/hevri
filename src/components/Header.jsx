@@ -1,6 +1,7 @@
 import Logo from "../assets/Logo.svg";
 import styled from "styled-components";
 import Button from "./UI/Button";
+import { Link } from "react-router-dom";
 
 const Head = styled.header`
   display: flex;
@@ -19,8 +20,13 @@ const Head = styled.header`
     gap: 25px;
   }
 
+  & a {
+    text-decoration: none;
+  }
+
   & li {
     cursor: pointer;
+    color: #4a5168;
   }
 
   @media only screen and (max-width: 768px) {
@@ -46,9 +52,16 @@ const Header = (props) => {
       </div>
 
       <ul>
-        <li>Explore</li>
-        <li>Admission Support</li>
-        <li>Community</li>
+        <Link to="explore">
+          <li>Explore</li>
+        </Link>
+
+        <Link to="admission-support">
+          <li>Admission Support</li>
+        </Link>
+        <Link to="community">
+          <li>Community</li>
+        </Link>
       </ul>
 
       <BtnCon className="btn">
