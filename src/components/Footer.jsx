@@ -2,6 +2,7 @@ import styled from "styled-components";
 import FooterLogo from "../assets/footerLogo.svg";
 import Linkedin from "../assets/linkedinLogo.svg";
 import Twitter from "../assets/twitterLogo.svg";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   background-color: #f3f3f3;
@@ -50,6 +51,19 @@ const Foot = styled.footer`
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+& a {
+  text-decoration: none;
+}
+
+& li {
+  cursor: pointer;
+  color: #4a5168;
+}
+
+& li:hover{
+  color: #f3f3f3;
 }
 
 .company {
@@ -118,11 +132,21 @@ const Footer = () => {
 
             <div className="company">
               <h4>Company</h4>
+
               <ul>
-                <li>Explore</li>
-                <li>Admission Support</li>
-                <li>Community</li>
-                <li>Contact Us</li>
+                <Link to="/explore">
+                  <li>Explore</li>
+                </Link>
+
+                <Link to="/admission-support">
+                  <li>Admission Support</li>
+                </Link>
+                <Link to="/community">
+                  <li>Community</li>
+                </Link>
+                <Link to="/contact">
+                  <li>Contact us</li>
+                </Link>
               </ul>
             </div>
 

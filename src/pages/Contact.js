@@ -1,14 +1,14 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-const Community = () => {
+const Contact = () => {
   return (
     <>
       <Header />
-      <h1>Community</h1>
+      <h1>Contact</h1>
       <Footer />
     </>
   );
 };
 
-export default Community;
+export default Contact;

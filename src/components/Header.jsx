@@ -1,7 +1,10 @@
 import Logo from "../assets/Logo.svg";
+import Menu from "../assets/menu.svg";
 import styled from "styled-components";
 import Button from "./UI/Button";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import MobileMenu from "./MoblieMenu";
 
 const Head = styled.header`
   display: flex;
@@ -29,13 +32,26 @@ const Head = styled.header`
     color: #4a5168;
   }
 
+  .menu {
+    display: none;
+  }
+
   @media only screen and (max-width: 768px) {
     /* For everything lesser than 768px */
-    margin: 0 auto;
+
+    padding: 50px 30px 50px;
 
     ul,
     .btn {
       display: none;
+    }
+
+    .menu {
+      display: inline;
+    }
+
+    .menu img {
+      height: 40px;
     }
   }
 `;
@@ -45,30 +61,45 @@ const BtnCon = styled.div`
   gap: 20px;
 `;
 const Header = (props) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  const show = () => {
+    setIsMobile(!isMobile);
+  };
+
   return (
-    <Head>
-      <div>
-        <img src={Logo} alt="" />
-      </div>
-
-      <ul>
-        <Link to="explore">
-          <li>Explore</li>
+    <>
+      <Head>
+        <Link to="/">
+          <div>
+            <img src={Logo} alt="" />
+          </div>
         </Link>
 
-        <Link to="admission-support">
-          <li>Admission Support</li>
-        </Link>
-        <Link to="community">
-          <li>Community</li>
-        </Link>
-      </ul>
+        <ul>
+          <Link to="/explore">
+            <li>Explore</li>
+          </Link>
 
-      <BtnCon className="btn">
-        <Button type="login">Login</Button>
-        <Button type="signup">Sign Up</Button>
-      </BtnCon>
-    </Head>
+          <Link to="/admission-support">
+            <li>Admission Support</li>
+          </Link>
+          <Link to="/community">
+            <li>Community</li>
+          </Link>
+        </ul>
+
+        <div className="menu" onClick={show}>
+          <img src={Menu} alt="" />
+        </div>
+
+        <BtnCon className="btn">
+          <Button type="login">Login</Button>
+          <Button type="signup">Sign Up</Button>
+        </BtnCon>
+      </Head>
+      {isMobile && <MobileMenu />}
+    </>
   );
 };
 
