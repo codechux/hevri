@@ -94,7 +94,9 @@ const Header = (props) => {
         </div>
 
         <BtnCon className="btn">
-          <Button type="login">Login</Button>
+          <Link to="/login">
+            <Button type="login">Login</Button>
+          </Link>
           <Button type="signup">Sign Up</Button>
         </BtnCon>
       </Head>
