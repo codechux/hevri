@@ -50,7 +50,7 @@ const Log = styled.section`
     }
 
     .welcome {
-      min-width: 350px;
+      width: 350px;
       border-bottom: 2px solid #ababab;
     }
 

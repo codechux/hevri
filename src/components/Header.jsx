@@ -69,6 +69,7 @@ const Header = (props) => {
 
   return (
     <>
+      {isMobile && <MobileMenu />}
       <Head>
         <Link to="/">
           <div>
@@ -100,7 +101,6 @@ const Header = (props) => {
           <Button type="signup">Sign Up</Button>
         </BtnCon>
       </Head>
-      {isMobile && <MobileMenu />}
     </>
   );
 };

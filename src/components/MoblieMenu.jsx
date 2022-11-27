@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "./UI/Button";
+import ReactDOM from "react-dom";
 
 const Menu = styled.div`
+  position: fixed;
   height: 100vh;
   width: 413.5px;
   background-color: #fb7c46;
@@ -36,25 +38,36 @@ const Menu = styled.div`
   }
 `;
 
+const portal = document.getElementById("overlay");
+
 const MobileMenu = () => {
   return (
-    <Menu>
-      <ul>
-        <Link to="/explore">
-          <li>Explore</li>
-        </Link>
+    <>
+      {ReactDOM.createPortal(
+        <Menu>
+          <ul>
+            <Link to="/explore">
+              <li>Explore</li>
+            </Link>
 
-        <Link to="/admission-support">
-          <li>Admission Support</li>
-        </Link>
-        <Link to="/community">
-          <li>Community</li>
-        </Link>
-      </ul>
+            <Link to="/admission-support">
+              <li>Admission Support</li>
+            </Link>
+            <Link to="/community">
+              <li>Community</li>
+            </Link>
+          </ul>
 
-      <Button type="login">Login</Button>
-      <Button type="signup">Sign Up</Button>
-    </Menu>
+          <Link to="/login">
+            <Button type="login">Login</Button>
+          </Link>
+          <Link to="/signup">
+            <Button type="signup">Sign Up</Button>
+          </Link>
+        </Menu>,
+        portal
+      )}
+    </>
   );
 };
 
